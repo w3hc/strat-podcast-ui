@@ -108,7 +108,7 @@ export default function Home() {
       <Head />
 
       <main>
-        <HeadingComponent as="h2">Strat 🌈</HeadingComponent>
+        <HeadingComponent as="h2">Showcasing Arthera SMP integration</HeadingComponent>
         <Button
           mt={4}
           colorScheme="blue"
