@@ -1,4 +1,4 @@
-import { useToast, Box, Stack, HStack, Heading, Text, VStack, useColorModeValue, List, ListItem, ListIcon, Button } from '@chakra-ui/react'
+import { useToast, Box, Stack, HStack, Heading, Text, VStack, useColorModeValue, List, ListItem, ListIcon, Button, Link } from '@chakra-ui/react'
 import { Head } from 'components/layout/Head'
 import { HeadingComponent } from 'components/layout/HeadingComponent'
 import { LinkComponent } from 'components/layout/LinkComponent'
@@ -48,6 +48,7 @@ export default function Home() {
       }
     }
     init()
+    console.log('contract address:', NFT_CONTRACT_ADDRESS)
     console.log('isConnected:', isConnected)
     console.log('network:', chain?.name)
     console.log('signer:', signer)
@@ -72,7 +73,7 @@ export default function Home() {
       setTxHash('')
       setTxLink('')
       const nft = new ethers.Contract(NFT_CONTRACT_ADDRESS, NFT_CONTRACT_ABI, signer)
-      const call = await nft.safeMint(signer.address)
+      const call = await nft.safeMint()
       const receipt = await call.wait()
       console.log('tx:', receipt)
       setTxHash(receipt.hash)
@@ -91,8 +92,8 @@ export default function Home() {
       setIsLoading(false)
       console.log('error:', e)
       toast({
-        title: 'Woops',
-        description: 'Something went wrong during the minting process...',
+        title: 'Something went wrong during the minting process',
+        description: '' + e + '',
         status: 'error',
         position: 'bottom',
         variant: 'subtle',
@@ -168,9 +169,15 @@ export default function Home() {
                   </ListItem>
                 </List>
                 <Box w="80%" pt={7}>
-                  <Button w="full" colorScheme="red" variant="outline">
-                    Start trial
-                  </Button>
+                  <Link
+                    href={
+                      'https://smp.arthera.net/hosted/checkout?c=d92f5ec5-2a27-4049-bf10-8f77ca3be7fe&su=ht[…]at.cc/&sbx=false&p=Core-Standard&tabId=tab-0.5921889572690626'
+                    }
+                    isExternal>
+                    <Button w="full" colorScheme="red" variant="outline">
+                      Start trial
+                    </Button>
+                  </Link>
                 </Box>
               </VStack>
             </PriceWrapper>
@@ -230,9 +237,15 @@ export default function Home() {
                     </ListItem>
                   </List>
                   <Box w="80%" pt={7}>
-                    <Button w="full" colorScheme="red">
-                      Start trial
-                    </Button>
+                    <Link
+                      href={
+                        'https://smp.arthera.net/hosted/checkout?c=d92f5ec5-2a27-4049-bf10-8f77ca3be7fe&su=ht[…]at.cc/&sbx=false&p=Core-Standard&tabId=tab-0.5921889572690626'
+                      }
+                      isExternal>
+                      <Button w="full" colorScheme="red">
+                        Start trial
+                      </Button>
+                    </Link>
                   </Box>
                 </VStack>
               </Box>
@@ -270,9 +283,15 @@ export default function Home() {
                   </ListItem>
                 </List>
                 <Box w="80%" pt={7}>
-                  <Button w="full" colorScheme="red" variant="outline">
-                    Start trial
-                  </Button>
+                  <Link
+                    href={
+                      'https://smp.arthera.net/hosted/checkout?c=d92f5ec5-2a27-4049-bf10-8f77ca3be7fe&su=ht[…]at.cc/&sbx=false&p=Core-Standard&tabId=tab-0.5921889572690626'
+                    }
+                    isExternal>
+                    <Button w="full" colorScheme="red" variant="outline">
+                      Start trial
+                    </Button>
+                  </Link>
                 </Box>
               </VStack>
             </PriceWrapper>
