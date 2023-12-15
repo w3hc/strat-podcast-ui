@@ -109,7 +109,7 @@ export default function Home() {
 
       <main>
         <HeadingComponent as="h2">Showcasing Arthera SMP integration</HeadingComponent>
-        {/* <Button
+        <Button
           mt={4}
           colorScheme="blue"
           variant="outline"
@@ -119,7 +119,7 @@ export default function Home() {
           loadingText="Minting..."
           spinnerPlacement="end">
           Mint
-        </Button> */}
+        </Button>
         {txHash && (
           <Text py={4} fontSize="14px" color="#45a2f8">
             <LinkComponent href={txLink ? txLink : ''}>{txHash}</LinkComponent>
